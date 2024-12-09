@@ -10,8 +10,8 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
+import { ModeToggle } from "./toggle-mode"
 
-// Menu items.
 const items = [
   {
     title: "Notas",
@@ -58,6 +58,11 @@ export function AppSidebar() {
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
+              <SidebarMenuItem>
+                  <SidebarMenuButton asChild>
+                      <ModeToggle/>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
