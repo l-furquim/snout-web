@@ -18,12 +18,12 @@ export default function NewNote(){
 
 
   return (
-    <div className="flex w-[600px] mt-16 p-10 h-full gap-10 shadow-md bg-foreground flex-col rounded-sm justify-center bg-zinc-200 bg-opacity-40">
+    <div className="flex w-[600px] mt-16 p-10 h-full gap-10 font-bold shadow-md bg-foreground flex-col rounded-sm justify-center dark:bg-zinc-200 dark:text-neutral-800 bg-zinc-200 bg-opacity-40">
       <div className="flex w-full justify-start">
-        <Textarea className="w-[400px] shadow-md resize-none bg-zinc-300" placeholder={"Titulo"}/>
+        <Textarea className="w-[400px] shadow-md border-none resize-none bg-zinc-300" placeholder={"Titulo"}/>
       </div>
       <div className="flex w-full justify-center">
-        <Textarea className="w-full h-24 shadow-md resize-none bg-zinc-300" placeholder={"Conteudo"}/>
+        <Textarea className="w-full h-24 shadow-md border-none resize-none bg-zinc-300" placeholder={"Conteudo"}/>
       </div>
         {reminder ? <div className="flex flex-col gap-5 justify-center">
                       <p>Data a ser lembrado</p>
@@ -55,7 +55,7 @@ export default function NewNote(){
         }
 
       <div className="flex justify-end ">
-      <Button className="w-28 h-10 bg-neutral-800">Anotar</Button>
+      <Button className="w-28 h-10 rounded-sm font-bold text-zinc-200 bg-neutral-800 dark:text-neutral-800 dark:hover:bg-zinc-200 hover:bg-neutral-800 dark:bg-zinc-300">Anotar</Button>
       </div>
     </div>
   )

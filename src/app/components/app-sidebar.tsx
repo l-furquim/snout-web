@@ -1,4 +1,4 @@
-import { Calendar, Home, Bell, Search, Settings } from "lucide-react"
+import { Calendar, Home, Bell, Search, Settings,SquareUserRound } from "lucide-react"
 
 import {
   Sidebar,
@@ -15,28 +15,33 @@ import { ModeToggle } from "./toggle-mode"
 const items = [
   {
     title: "Notas",
-    url: "#",
+    url: "/notes",
     icon: Home,
   },
   {
     title: "Lembretes",
-    url: "#",
+    url: "/reminder",
     icon: Bell,
   },
   {
     title: "Calendario",
-    url: "#",
+    url: "/calendar",
     icon: Calendar,
   },
   {
     title: "Pesquisar",
-    url: "#",
+    url: "/search",
     icon: Search,
   },
   {
     title: "Configuração",
     url: "#",
     icon: Settings,
+  },
+  {
+    title: "Perfil",
+    url: "/profile",
+    icon: SquareUserRound,
   },
 ]
 

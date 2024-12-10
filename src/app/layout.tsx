@@ -24,18 +24,19 @@ export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
+
 }>) {
   return (
     <html lang="pt-br">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-      <ThemeProvider
+      {/* <ThemeProvider
             attribute="class"
             defaultTheme="system"
             enableSystem
             disableTransitionOnChange
-          >
+          > */}
         {children}
-      </ThemeProvider>
+      {/* </ThemeProvider> */}
       </body>
     </html>
   );
