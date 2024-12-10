@@ -2,12 +2,15 @@
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { ToastAction } from "@/components/ui/toast";
+import { useToast } from "@/hooks/use-toast";
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 import { useState } from "react";
 
 
 export default function ProfileCard(){
   const [editing, setEditing] = useState<boolean>(true);
+  const {toast} = useToast();
 
   function editInfos() {
     setEditing(false);
@@ -15,6 +18,15 @@ export default function ProfileCard(){
 
   function saveChanges(){
     setEditing(true);
+
+    toast({
+      title: "Mudanças realizadas",
+      description: "Friday, February 10, 2023 at 5:57 PM",
+      action: (
+        <ToastAction altText="Goto schedule to undo">Fechar</ToastAction>
+      ),
+    })
+
   }
 
 

@@ -11,6 +11,7 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
 import { ModeToggle } from "./toggle-mode"
+import { usePathname } from "next/navigation"
 
 const items = [
   {
@@ -46,6 +47,10 @@ const items = [
 ]
 
 export function AppSidebar() {
+  const actualPage = usePathname();
+  
+
+  
   return (
     <Sidebar>
       <SidebarContent>
@@ -54,7 +59,9 @@ export function AppSidebar() {
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (
-                <SidebarMenuItem key={item.title}>
+                <SidebarMenuItem className={
+                  actualPage === item.url ? "bg-neutral-800 text-zinc-200" : ""
+                } key={item.title}>
                   <SidebarMenuButton asChild>
                     <a href={item.url}>
                       <item.icon />
