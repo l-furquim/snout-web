@@ -5,7 +5,7 @@ export default function ReminderPage() {
   return (
     <div className="flex flex-col gap-20 justify-center items-center">
       <NewNote/>
-      <Reminders/>
+      {/* <Reminders/> */}
     </div>
   )
 }
