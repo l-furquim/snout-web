@@ -19,9 +19,9 @@ export default function NewNote(){
 
 
   return (
-    <div className="flex w-[1400px] mt-16 p-10 h-full gap-10 font-bold shadow-md bg-foreground flex-col rounded-sm justify-start dark:bg-zinc-200 dark:text-neutral-800 bg-zinc-200 bg-opacity-40">
+    <div className="flex w-[1400px] ml-10 mr-10 mt-16 p-10 h-full gap-10 font-bold shadow-md bg-foreground flex-col rounded-xl justify-start dark:bg-neutral-900 dark:text-zinc-200 bg-zinc-100">
       <div className="flex w-full gap-20 justify-start">
-        <Textarea className="w-[400px] border-none resize-none focus:outline-none bg-none" placeholder={"Titulo"}/>
+        <Textarea  className="w-[400px] h-fit border-none resize-none focus:outline-none bg-none placeholder:text-zinc-600 placeholder:text-2xl" placeholder={"Titulo"}/>
 
               {reminder ? <div className="flex flex-col gap-5 justify-center">
                             <p>Data a ser lembrado</p>

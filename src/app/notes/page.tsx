@@ -8,7 +8,7 @@ export default function NotesPage(){
   return (
     <div className="flex flex-col justify-center items-center gap-20">
         <NewNote/>
-        <Notes/>
+{/*         <Notes/> */}
     </div>
   )
 }

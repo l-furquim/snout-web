@@ -15,15 +15,7 @@ import {
   ContextMenuTrigger,
 } from "@/components/ui/context-menu"
 
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu"
+
 
 
 import {
@@ -39,6 +31,7 @@ import {
 
 import { ModeToggle } from "./toggle-mode"
 import { usePathname } from "next/navigation"
+import ReminderButton from "./reminder-button"
 
 
 
@@ -79,7 +72,7 @@ export function AppSidebar() {
   const actualPage = usePathname();
       return (
         <Sidebar>
-          <SidebarContent>
+          <SidebarContent className="dark:bg-neutral-900 border-none">
             <SidebarGroup>
               <SidebarGroupLabel className="text-xl text-neutral-800">Snout notes</SidebarGroupLabel>
               <SidebarGroupContent>
@@ -125,45 +118,17 @@ export function AppSidebar() {
                             </ContextMenuContent>
                           </ContextMenu>: 
                           <SidebarMenuButton asChild>
-                             {item.url === "/reminder" ? 
-                            <NavigationMenu>
-                            <NavigationMenuList>
-                              <NavigationMenuItem>
-                                <NavigationMenuTrigger className="">
-                                <a href={item.url}>
-                                  <item.icon />
-                                  <span>{item.title}</span>
-                                </a>
-                                </NavigationMenuTrigger>
-                                <NavigationMenuContent>
-                                  <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                                    <li className="row-span-3">
-                                      <NavigationMenuLink asChild>
-                                        <a
-                                          className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                                          href="/"
-                                        >
-                                         
-                                          <div className="mb-2 mt-4 text-lg font-medium">
-                                            shadcn/ui
-                                          </div>
-                                          <p className="text-sm leading-tight text-muted-foreground">
-                                            Beautifully designed components that you can copy and
-                                            paste into your apps. Accessible. Customizable. Open
-                                            Source.
-                                          </p>
-                                        </a>
-                                      </NavigationMenuLink>
-                                    </li>
-                                  </ul>
-                                </NavigationMenuContent>
-                              </NavigationMenuItem>
-                            </NavigationMenuList>
-                          </NavigationMenu> :
-                          <a href={item.url}>
-                          <item.icon />
-                          <span>{item.title}</span>
-                        </a>}
+                             {
+
+                             item.url === "/reminder" ? 
+                            <ReminderButton item={item}/> :
+
+                            <a href={item.url}>
+                            <item.icon />
+                            <span>{item.title}</span>
+                          </a>
+                          
+                            }
                         </SidebarMenuButton>}
                         {/* {item.url === "/reminder" ? 
                         : ""} */}
