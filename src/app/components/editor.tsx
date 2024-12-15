@@ -1,5 +1,6 @@
 "use client"
 
+
 import 'highlight.js/styles/tokyo-night-dark.css'
 import StarterKit from '@tiptap/starter-kit'
 import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight'
@@ -11,6 +12,7 @@ import html from 'highlight.js/lib/languages/xml'
 import { all, createLowlight } from 'lowlight'
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
+import { Bold, Code, Italic, List, Strikethrough } from 'lucide-react'
 
 export const  TipTap = () => {
   const lowlight = createLowlight(all);
@@ -18,6 +20,8 @@ export const  TipTap = () => {
   const [clickedOptionBold, setclickedOptionBold] = useState(false);
   const [clickedOptionItalic, setclickedOptionItalic] = useState(false);
   const [clickedOptionStrike, setclickedOptionStrike] = useState(false);
+  const [clickedOptionBullet, setClickedOptionBullet] = useState(false);
+  const [clickedOptionCode, setClickedOptionCode] = useState(false);
 
 
   lowlight.register('html', html)
@@ -70,21 +74,34 @@ export const  TipTap = () => {
                 onClick={() => editor.chain().focus().toggleBold().run() && setclickedOptionBold(!clickedOptionBold)}
                 className={` ${editor.isActive('bold') ? 'is-active' : ''} ${clickedOptionBold ? 'bg-neutral-800 text-zinc-200  hover:bg-neutral-700': "bg-zinc-300 text-neutral-800 hover:bg-neutral-800 hover:text-zinc-200"}`}
               >
-                Bold
+                <Bold/>
               </Button>
               <Button
                 onClick={() => editor.chain().focus().toggleItalic().run() && setclickedOptionItalic(!clickedOptionItalic)}
                 className={`  ${editor.isActive('italic') ? 'is-active' : ''} ${clickedOptionItalic ? 'bg-neutral-800 text-zinc-200  hover:bg-neutral-700': "bg-zinc-300 text-neutral-800 hover:bg-neutral-800 hover:text-zinc-200"}`}
               >
-                Italic
+                <Italic/>
               </Button>
               <Button
                 onClick={() => editor.chain().focus().toggleStrike().run() && setclickedOptionStrike(!clickedOptionStrike)}
                 className={` ${editor.isActive('strike') ? 'is-active' : ''} ${clickedOptionStrike ? 'bg-neutral-800 text-zinc-200  hover:bg-neutral-700': "bg-zinc-300 text-neutral-800 hover:bg-neutral-800 hover:text-zinc-200"}`}
               >
-                Strike
+                <Strikethrough/>
                </Button>
-              </BubbleMenu>}
+               <Button
+                onClick={() => editor.chain().focus().toggleBulletList().run() && setClickedOptionBullet(!clickedOptionBullet)}
+                className={`${editor.isActive('bulletList') ? 'is-active' : ''} ${clickedOptionBullet ? 'bg-neutral-800 text-zinc-200  hover:bg-neutral-700': "bg-zinc-300 text-neutral-800 hover:bg-neutral-800 hover:text-zinc-200"}`}
+              >
+                <List/>
+                </Button>
+                  <Button
+                  onClick={() => editor.chain().focus().toggleCodeBlock().run() && setClickedOptionCode(!clickedOptionCode)}
+                  className={`${editor.isActive('codeBlock') ? 'is-active' : ''} ${clickedOptionCode ? 'bg-neutral-800 text-zinc-200  hover:bg-neutral-700': "bg-zinc-300 text-neutral-800 hover:bg-neutral-800 hover:text-zinc-200"}`}
+                  >
+                    <Code/>
+                  </Button>
+              </BubbleMenu>
+              }
               <EditorContent editor={editor} />
           </div>
         </>

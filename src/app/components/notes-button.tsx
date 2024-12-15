@@ -13,6 +13,7 @@ import {
   ContextMenuShortcut,
   ContextMenuTrigger,
 } from "@/components/ui/context-menu"
+import { Button } from "@/components/ui/button";
 
 
 
@@ -31,9 +32,9 @@ const NotesButton = () => {
             <CollapsibleContent>
               <SidebarMenuSub>
                 <SidebarMenuSubItem>
-                <div className="flex items-center gap-2">
+                <Button onClick={() => location.replace("/notes")} className="flex hover:cursor-pointer items-center gap-2">
                 <Turtle/> Anotacoes
-                </div>
+                </Button>
                 </SidebarMenuSubItem>
               </SidebarMenuSub>
             </CollapsibleContent>

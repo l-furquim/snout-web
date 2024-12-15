@@ -14,7 +14,7 @@ const ReminderButton = () => {
         <Collapsible defaultOpen className="group/collapsible">
           <SidebarMenuItem>
             <CollapsibleTrigger asChild>
-              <SidebarMenuButton>
+              <SidebarMenuButton onClick={() => location.replace("/reminder")}>
               <Bell/> Lembretes
               </SidebarMenuButton>
             </CollapsibleTrigger>
