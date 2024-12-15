@@ -48,7 +48,7 @@ export function AppSidebar() {
         <Sidebar>
           <SidebarContent className="dark:bg-neutral-900 border-none">
             <SidebarGroup>
-              <SidebarGroupLabel className="text-xl dark:text-zinc-200 text-neutral-800">Snout notes</SidebarGroupLabel>
+              <SidebarGroupLabel className="text-xl dark:text-zinc-200 mb-5 text-neutral-800">Snout notes</SidebarGroupLabel>
               <SidebarGroupContent>
                 <SidebarMenu>
                 <ReminderButton/>
