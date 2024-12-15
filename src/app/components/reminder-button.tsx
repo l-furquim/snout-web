@@ -1,29 +1,44 @@
 import { SidebarMenuButton, SidebarMenuItem, SidebarMenuSub, SidebarMenuSubItem } from "@/components/ui/sidebar"
-import { Bell, Turtle} from "lucide-react"
+import { ArrowDown, ArrowRight, Bell, Plus, Turtle} from "lucide-react"
 import { useState} from "react"
 import type React from "react"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
+import { Button } from "@/components/ui/button"
 
 
 const ReminderButton = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
+  const [showArrow, setShowArrow] = useState(false);
+  const [arrowClicked, setShowArrowClicked] = useState(false);
 
   return (
       <>
-        <Collapsible defaultOpen className="group/collapsible">
+        <Collapsible className="group/collapsible">
           <SidebarMenuItem>
             <CollapsibleTrigger asChild>
-              <SidebarMenuButton onClick={() => location.replace("/reminder")}>
-              <Bell/> Lembretes
+              <SidebarMenuButton onClick={() => setShowArrowClicked(!arrowClicked)}  onMouseEnter={() => setShowArrow(true)} onMouseLeave={() => setShowArrow(false)}>
+              
+              {
+                !showArrow ? <Bell/> : 
+                arrowClicked ? 
+                <ArrowDown className="hover:bg-neutral-700 rounded-md"/> : 
+                <ArrowRight size={20} className="hover:bg-neutral-700 rounded-md"/>
+              
+              }
+              Lembretes
+              
+              <div className="flex w-full justify-end items-center">
+              {
+                showArrow ? <Plus className="hover:bg-neutral-700 rounded-xl p-1"/> : <></>
+              }
+              </div>
               </SidebarMenuButton>
             </CollapsibleTrigger>
             <CollapsibleContent>
               <SidebarMenuSub>
                 <SidebarMenuSubItem>
-                <div className="flex items-center gap-2">
+                <Button onClick={() => location.replace("/reminder")} className="flex shadow-none items-center gap-2">
                 <Turtle/> Anotacoes
-                </div>
+                </Button>
                 </SidebarMenuSubItem>
               </SidebarMenuSub>
             </CollapsibleContent>

@@ -1,6 +1,8 @@
+'use client'
+
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
 import { SidebarMenuButton, SidebarMenuItem, SidebarMenuSub, SidebarMenuSubItem } from "@/components/ui/sidebar"
-import { NotebookTabs, Turtle } from "lucide-react";
+import { ArrowDown, ArrowRight, NotebookTabs, Plus, Turtle } from "lucide-react";
 import {
   ContextMenu,
   ContextMenuCheckboxItem,
@@ -14,25 +16,39 @@ import {
   ContextMenuTrigger,
 } from "@/components/ui/context-menu"
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
 
 
 
 const NotesButton = () => {
+  const [showArrow, setShowArrow] = useState(false);
+  const [arrowClicked, setShowArrowClicked] = useState(false);
+
   return (
     <>
      <ContextMenu>
         <ContextMenuTrigger className="">
-        <Collapsible defaultOpen className="group/collapsible">
+        <Collapsible className="group/collapsible">
           <SidebarMenuItem>
             <CollapsibleTrigger asChild>
-              <SidebarMenuButton>
-              <NotebookTabs/> Notas
+              <SidebarMenuButton   onClick={() => setShowArrowClicked(!arrowClicked)} onMouseEnter={() => setShowArrow(true)} onMouseLeave={() => setShowArrow(false)}>
+              {
+                !showArrow ? <NotebookTabs/> : arrowClicked ? 
+                
+                <ArrowDown  className="hover:bg-neutral-700 rounded-md"/> : <ArrowRight size={20} className="hover:bg-neutral-700 rounded-md"/>
+              } 
+              Notas
+              <div className="flex w-full justify-end items-center">
+              {
+                showArrow ? <Plus className="hover:bg-neutral-700 rounded-xl p-1"/> : <></>
+              }
+              </div>
               </SidebarMenuButton>
             </CollapsibleTrigger>
             <CollapsibleContent>
               <SidebarMenuSub>
                 <SidebarMenuSubItem>
-                <Button onClick={() => location.replace("/notes")} className="flex hover:cursor-pointer items-center gap-2">
+                <Button onClick={() => location.replace("/notes")} className="flex shadow-none items-center gap-2">
                 <Turtle/> Anotacoes
                 </Button>
                 </SidebarMenuSubItem>
